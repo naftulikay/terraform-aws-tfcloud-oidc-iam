@@ -47,12 +47,11 @@ variable url {
 
   validation {
     condition = length(regex("^(?:https[:][/]{2})?(?:[^:/]+)([/].*)$", var.url)) > 0
-    error_message = "var.uri should not end with or contain a trailing slash/HTTP path"
+    error_message = "var.url should not end with or contain a trailing slash/HTTP path"
   }
 
   validation {
     condition = startswith("https://", var.url) == false
-    error_message = "var.uri should start with 'https://'"
-
+    error_message = "var.url should start with 'https://'"
   }
 }
