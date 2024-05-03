@@ -46,7 +46,7 @@ variable url {
   EOF
 
   validation {
-    condition = length(regex("^(?:https[:][/]{2})?(?:[^:/]+)([/].*)$", var.url)) > 0
+    condition = length(regexall("^(?:https[:][/]{2})?(?:[^:/]+)([/].*)?$", var.url)) > 0
     error_message = "var.url should not end with or contain a trailing slash/HTTP path"
   }
 
