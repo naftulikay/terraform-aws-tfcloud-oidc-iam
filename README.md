@@ -83,8 +83,9 @@ To test the role assumption in Terraform Cloud/Enterprise, we need to inform our
 IAM role.
 
 On the workspace(s), set the following variables as _environment_ variables:
-    - `TFC_AWS_PROVIDER_AUTH` should be set to `true`
-    - `TFC_AWS_RUN_ROLE_ARN` should be set to the ARN of the IAM role to assume.
+
+ - `TFC_AWS_PROVIDER_AUTH` should be set to `true`
+ - `TFC_AWS_RUN_ROLE_ARN` should be set to the ARN of the IAM role to assume.
 
 Then, use the following sample code in a workspace to demonstrate that it is correctly assuming the role and
 authenticating to AWS:
