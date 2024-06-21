@@ -103,7 +103,7 @@ output arn {
 
 The `arn` output should show the ARN of the IAM role.
 
-### Additional Documentation
+## Additional Documentation
 
 Here are some links to additional documentation for understanding how best to configure this and how it all works:
 
