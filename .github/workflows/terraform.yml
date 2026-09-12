@@ -17,15 +17,15 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/cache@v3
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
         with:
           key: ${{ runner.os }}-${{ github.job }}-${{ env.CACHE_VERSION }}-${{ github.sha }}
           path: |
             ~/.tflint.d/plugins
           restore-keys: |
             ${{ runner.os }}-${{ github.job }}-${{ env.CACHE_VERSION }}-
-      - uses: terraform-linters/setup-tflint@v4
+      - uses: terraform-linters/setup-tflint@v5
         with:
           tflint_version: latest
       - run: tflint --init
@@ -34,13 +34,21 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/cache@v3
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
         with:
           key: ${{ runner.os }}-${{ github.job }}-${{ env.CACHE_VERSION }}-${{ github.sha }}
           path: |
             ~/.terraform.d/plugin-cache
           restore-keys: |
             ${{ runner.os }}-${{ github.job }}-${{ env.CACHE_VERSION }}-
-      - uses: hashicorp/setup-terraform@v2
+      - uses: hashicorp/setup-terraform@v3
       - run: make validate
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hashicorp/setup-terraform@v3
+      - run: terraform init
+      - run: terraform test

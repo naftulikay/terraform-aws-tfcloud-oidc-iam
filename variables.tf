@@ -46,12 +46,7 @@ variable url {
   EOF
 
   validation {
-    condition = length(regexall("^(?:https[:][/]{2})?(?:[^:/]+)([/].*)?$", var.url)) > 0
-    error_message = "var.url should not end with or contain a trailing slash/HTTP path"
-  }
-
-  validation {
-    condition = startswith("https://", var.url) == false
-    error_message = "var.url should start with 'https://'"
+    condition = can(regex("^https://[^/]+$", var.url))
+    error_message = "var.url must be an https:// origin with no path or trailing slash (e.g. https://app.terraform.io)"
   }
 }
