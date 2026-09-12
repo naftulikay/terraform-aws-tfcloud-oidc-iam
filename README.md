@@ -29,7 +29,7 @@ generate a role assumption policy, and create an IAM role without any permission
 ```terraform
 module tf_oidc_iam {
  source = "naftulikay/tfcloud-oidc-iam"
- version = "1.1.0"
+ version = "2.0.0"
 }
 
 # TODO set these to your TFC/TFE org name, project name (or wildcard), and workspace name (or wildcard)

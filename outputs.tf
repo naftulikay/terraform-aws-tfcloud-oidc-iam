@@ -29,7 +29,7 @@ output tags {
 }
 
 output thumbprint_list {
-    value = var.thumbprint_list
+  value = var.thumbprint_list
 }
 
 output url {
