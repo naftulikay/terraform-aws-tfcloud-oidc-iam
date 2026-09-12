@@ -2,6 +2,10 @@
 
 A Terraform module for AWS which sets up an IAM OpenID Connect Provider for Terraform Cloud or Terraform Enterprise.
 
+ - [Module Docs: Resources](/docs/RESOURCES.md)
+ - [Module Docs: Variables](/docs/VARIABLES.md)
+ - [Module Docs: Outputs](/docs/OUTPUTS.md)
+
 ## ⚠️ Safety ⚠️
 
 When defining IAM assume role policies using an OIDC provider, such as one offered by this module, care must be taken
